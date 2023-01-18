@@ -34,19 +34,20 @@
 
     <!-- JS Code -->
     <script>
-      const inputField = document.getElementById("input-field");
-      const demo = document.getElementById("demo");
+      var inputText = document.getElementById("input-field");
+      var outputText = document.getElementById("demo");
 
-      inputField.addEventListener("input", function () {
-        const words = inputField.value.split(" ");
-        let text = "";
+      inputText.addEventListener("input", function () {
+        var input = this.value;
+        var words = input.split(" ");
+        var result = "";
         for (let i = 0; i < words.length; i++) {
-          if (i === 13) {
-            text += "<br>";
+          result += words[i] + " ";
+          if ((i + 1) % 13 == 0) {
+            result += "<br>";
           }
-          text += words[i] + " ";
         }
-        demo.innerHTML = text;
+        outputText.innerHTML = result;
       });
     </script>
   </body>
