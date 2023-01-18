@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Problem</title>
+  </head>
+  <style>
+    #input-field {
+      border: 1px solid orangered;
+      padding: 10px 20px;
+      color: black;
+      border-radius: 5px;
+      margin-left: 50%;
+      margin-top: 50px;
+      transform: translate(-50%);
+      width: 300px;
+    }
+    #input-field:focus {
+      outline: none;
+      border: 1px solid blue;
+      box-shadow: 1px 0 10px gray;
+    }
+    #demo {
+      width: 60%;
+      margin-inline: auto;
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <input type="text" id="input-field" />
+    <p id="demo"></p>
+
+    <!-- JS Code -->
+    <script>
+      const inputField = document.getElementById("input-field");
+      const demo = document.getElementById("demo");
+
+      inputField.addEventListener("input", function () {
+        const words = inputField.value.split(" ");
+        let text = "";
+        for (let i = 0; i < words.length; i++) {
+          if (i === 13) {
+            text += "<br>";
+          }
+          text += words[i] + " ";
+        }
+        demo.innerHTML = text;
+      });
+    </script>
+  </body>
+</html>
